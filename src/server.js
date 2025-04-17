@@ -1,3 +1,7 @@
+if (process.env.VERCEL) {
+  process.env.DATABASE_URL = "file:/tmp/dev.db";
+}
+
 require('dotenv').config();
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
