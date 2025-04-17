@@ -6,7 +6,7 @@
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "vercel-build": "prisma generate && cp prisma/dev.db /tmp/dev.db",
-    "prisma": "prisma"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^6.6.0",

@@ -1,6 +1,17 @@
+// Add this at the VERY TOP of your file
 if (process.env.VERCEL) {
   process.env.DATABASE_URL = "file:/tmp/dev.db";
+  // Copy database file to /tmp (vercel's writable directory)
+  const fs = require('fs');
+  if (fs.existsSync('prisma/dev.db')) {
+    fs.copyFileSync('prisma/dev.db', '/tmp/dev.db');
+  }
 }
+
+
+
+
+const path = require('path'); // Add this
 
 require('dotenv').config();
 const express = require('express');
