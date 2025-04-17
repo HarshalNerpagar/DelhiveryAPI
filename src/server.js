@@ -14,6 +14,15 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const cors = require('cors');
+
+// Enable CORS for all routes
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://delhivery.carboncraft.in'], // Add your production frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 // POST endpoint
 app.post('/api/shipments', async (req, res) => {
   try {
